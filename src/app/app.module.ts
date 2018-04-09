@@ -12,6 +12,8 @@ import { SettingsPage } from '../pages/settings/settings';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
+
 import { WordsProvider } from '../providers/words/words';
 
 @NgModule({
@@ -26,7 +28,8 @@ import { WordsProvider } from '../providers/words/words';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
 
   ],
   bootstrap: [IonicApp],
