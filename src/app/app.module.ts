@@ -30,7 +30,6 @@ import { WordsProvider } from '../providers/words/words';
     HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [

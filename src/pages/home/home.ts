@@ -19,6 +19,7 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
+    console.log("enter home");
     this.storage.get('wordsUser').then((val)=>{
         if(val!=null){
           this.wordsUser = JSON.parse( val);
