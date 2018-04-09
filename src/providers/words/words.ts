@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the WordsProvider provider.
@@ -9,9 +11,20 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class WordsProvider {
-
-  constructor(public http: HttpClient) {
+  apiKey = 'CJzKmKHaLOMi';
+  url;
+  //
+  constructor(public http: Http) {
     console.log('Hello WordsProvider Provider');
+    this.url = 'https://appforbenapi.azurewebsites.net/api/wordlist';
   }
 
+  getWordLists(){
+    return this.http.get(this.url)
+                    .map(res=>res.json());
+  }
+
+  getWordList(wordListId){
+    return this.http.get(this.url+ '/'+wordListId);
+  }
 }
