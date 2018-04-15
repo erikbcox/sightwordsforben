@@ -6,18 +6,21 @@
 
 <ion-content padding class="home">
   <ion-grid *ngIf="wordLists">
-    <ion-row>
+    <ion-row *ngIf="selectedWordList == null">
       <ion-col width-50 offset-25  >
         <h2>Hey {{wordsUser}}</h2>
         <h4>Would you like to read some words?</h4>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col width-50 offset-25>
-        <ion-list>          
-          <ion-item *ngFor="let wordList of wordLists">{{wordList.name}}</ion-item>
-        </ion-list>
+    <ion-row  *ngIf="selectedWordList == null">
+      <ion-col width-50 offset-25  >
+        <word-list [wordLists]="wordLists" (selectWordList)="onListSelected($event)"></word-list>
       </ion-col>
-    </ion-row>      
+    </ion-row>
+    <ion-row *ngIf="selectedWordList">
+        <ion-col width-50 offset-25  >
+            <h2>Selected word list {{selectedWordList.name}}</h2>
+          </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
