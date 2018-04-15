@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { IonicModule } from "ionic-angular";
 
 /**
  * Generated class for the WordListComponent component.

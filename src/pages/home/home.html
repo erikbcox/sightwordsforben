@@ -1,6 +1,21 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+      <ion-icon name="menu" start></ion-icon>
+    <ion-title>Sight Words for Ben</ion-title>
+    <ion-icon name="beer" end></ion-icon>
+  </ion-navbar>
+</ion-header>-->
+<ion-header>
+  <ion-navbar color="primary">
+    <!--<ion-buttons left>
+        <button ion-button icon-only>
+          <ion-icon name="chatboxes"></ion-icon>
+        </button>
+    </ion-buttons>-->
+    <ion-title>Sight Words for Ben</ion-title>
+    <ion-buttons right  *ngIf="selectedWordList">
+      <button ion-button icon-only (click)="onCloseWordList()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -13,14 +28,16 @@
       </ion-col>
     </ion-row>
     <ion-row  *ngIf="selectedWordList == null">
-      <ion-col width-50 offset-25  >
-        <word-list [wordLists]="wordLists" (selectWordList)="onListSelected($event)"></word-list>
+      <ion-col width-50 offset-25>
+          <word-group [wordListGroups]="wordLists" (selectWordList)="onListSelected($event)"></word-group>
       </ion-col>
+
+
     </ion-row>
     <ion-row *ngIf="selectedWordList">
         <ion-col width-50 offset-25  >
             <h2>Selected word list {{selectedWordList.name}}</h2>
-          </ion-col>
+        </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

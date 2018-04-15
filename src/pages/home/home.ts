@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {WordsProvider} from '../../providers/words/words';
 
-import { WordListComponent } from '../../components/word-list/word-list';
 import {Storage} from '@ionic/storage';
 
 @Component({
@@ -18,7 +17,6 @@ export class HomePage {
     public navCtrl: NavController,
     private wordsProvider:WordsProvider,
     private storage:Storage) {
-
   }
 
   ionViewWillEnter(){
@@ -42,6 +40,10 @@ export class HomePage {
   }
 
   deselectWordList(){
+    this.selectedWordList = null;
+  }
+
+  onCloseWordList(){
     this.selectedWordList = null;
   }
 }
