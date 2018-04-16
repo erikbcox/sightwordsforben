@@ -11,7 +11,11 @@ import {Storage} from '@ionic/storage';
 export class HomePage {
   wordLists:any;
   selectedWordList:any;
+  selectedWord:any;
+  selectedWordIndex:any;
+  showFinish:any;
   wordsUser:any;
+  showFinalPage:boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -36,14 +40,33 @@ export class HomePage {
   onListSelected(obj){
     if(obj){
       this.selectedWordList = obj;
+      this.selectedWordIndex = 0;
+     this.selectedWord = this.selectedWordList.words[this.selectedWordIndex];
+    }
+  }
+  onNextClick(){
+    if(this.selectedWordIndex < this.selectedWordList.words.length-1){
+      this.selectedWordIndex++;
+      this.selectedWord = this.selectedWordList.words[this.selectedWordIndex];
+      console.log(this.selectedWord);
+    } else if(this.selectedWordIndex > 0){
+      this.showFinalPage = true;
     }
   }
 
   deselectWordList(){
-    this.selectedWordList = null;
+    this.resetSelected();
   }
 
   onCloseWordList(){
+    this.resetSelected();
+  }
+
+  resetSelected(){
     this.selectedWordList = null;
+    this.selectedWord = null;
+    this.selectedWordIndex = 0;
+
+    this.showFinalPage = false;
   }
 }

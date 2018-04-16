@@ -34,10 +34,34 @@
 
 
     </ion-row>
-    <ion-row *ngIf="selectedWordList">
+    <!--<ion-row *ngIf="selectedWordList">
         <ion-col width-50 offset-25  >
             <h2>Selected word list {{selectedWordList.name}}</h2>
         </ion-col>
+    </ion-row>-->
+    <ion-row *ngIf="(selectedWord && !showFinalPage)">
+        <ion-col width-50 offset-25  >
+           <word [currentWord]="selectedWord" ></word>
+        </ion-col>
     </ion-row>
+    <ion-row *ngIf="(selectedWord && !showFinalPage)">
+        <ion-col  >
+            <button  ion-button full large color="light" (click)="onNextClick()">
+                NEXT WORD
+            </button>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngIf="showFinalPage">
+      <ion-col width-50 offset-25  >
+        <h1>You've finished this Group!</h1>
+      </ion-col>
+  </ion-row>
+  <ion-row *ngIf="showFinalPage">
+      <ion-col  >
+          <button  ion-button full large color="light" (click)="onCloseWordList()">
+              DONE
+          </button>
+      </ion-col>
+  </ion-row>
   </ion-grid>
 </ion-content>

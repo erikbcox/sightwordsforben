@@ -12,6 +12,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { WordGroupPage } from '../pages/word-group/word-group'
 import { WordListComponent } from '../components/word-list/word-list';
 import { WordListGroupsComponent } from '../components/word-list-groups/word-list-groups';
+import { WordComponent } from '../components/word/word';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +29,8 @@ import { WordsProvider } from '../providers/words/words';
     HomePage,
     TabsPage,
     SettingsPage,
-    WordGroupPage/*,
+    WordGroupPage,
+    WordComponent/*,
     WordListComponent,
     WordListGroupsComponent*/
   ],
@@ -47,7 +49,8 @@ import { WordsProvider } from '../providers/words/words';
     HomePage,
     TabsPage,
     SettingsPage,
-    WordGroupPage/*,
+    WordGroupPage,
+    WordComponent/*,
     WordListComponent,
     WordListGroupsComponent*/
   ],
