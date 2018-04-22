@@ -1,7 +1,11 @@
 word {
   .card-content h2{
-    color:#fff;
+    color:color($colors, light, base);;
     font-size: 160px;
     text-align: center;
+  }
+
+  .card-content{
+    background: color($colors, third, base);
   }
 }
